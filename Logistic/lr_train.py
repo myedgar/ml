@@ -1,9 +1,7 @@
 #coding:UTF-8
 import numpy as np
-
-def sig(x):
-    #Sigmid函数
-    return 1.0 / (1 + np.exp(-x))
+import os
+from ml_math import sig
 
 def error_rate(h, label):
     #计算当前的损失函数值
@@ -69,7 +67,7 @@ def save_model(file_name, w):
 
 if __name__ == "__main__":
     print("1.load data\n")
-    feature, label = load_data("data.txt")
+    feature, label = load_data("./Logistic/data.txt")
 
     print("2.训练\n")
     w = lr_train_bgd(feature, label, 1000, 0.01)
