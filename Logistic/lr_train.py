@@ -1,7 +1,9 @@
 #coding:UTF-8
-import numpy as np
 import os
+import numpy as np
+from matplotlib.pyplot import *
 from ml_math import sig
+
 
 def error_rate(h, label):
     #计算当前的损失函数值
@@ -19,7 +21,7 @@ def error_rate(h, label):
 def lr_train_bgd(feature, label, max_cycle, alpha):
     #利用梯度下降法训练LR模型
     n = np.shape(feature)[1]      #特征个数
-    w = np.mat(np.ones(n , 1))    #初始化权重
+    w = np.mat(np.ones((n, 1)))    #初始化权重
     i = 0
     while i <= max_cycle:
         i += 1
@@ -70,7 +72,7 @@ if __name__ == "__main__":
     feature, label = load_data("./Logistic/data.txt")
 
     print("2.训练\n")
-    w = lr_train_bgd(feature, label, 1000, 0.01)
+    w = lr_train_bgd(feature, label, 100000, 0.02)
 
     print("3.保存\n")
-    save_model("weight", w)
+    save_model("./Logistic/weight", w)

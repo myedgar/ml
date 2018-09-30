@@ -54,11 +54,11 @@ def save_result(file_name, result):
 
 if __name__ == "__main__":
     print("--------------1.load model--------------")
-    w = load_weight("weights")
+    w = load_weight("./Logistic/weight")
     n = np.shape(w)[1]
 
     print("--------------2.load data---------------")
-    test_data = load_data("test_data", n)
+    test_data = load_data("./Logistic/test_data", n)
 
     print("------------3.get prediction------------")
     h = predict(test_data, w)
